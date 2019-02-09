@@ -1,0 +1,41 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Spring Quartz -->
+	 <bean name="schedulerJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="com.coursemanagementsystem.quartz.jobs.SchedulerJob" />
+	</bean>
+	
+	 <bean name="generation" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="com.coursemanagementsystem.quartz.jobs.Generation" />
+	</bean> 
+
+	<!-- Cron Trigger, run every 5 seconds -->
+	<bean id="cronTrigger1" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="schedulerJob" />
+		<property name="cronExpression" value="0/10 * * * * ?" />
+	</bean>
+	
+	<bean id="cronTrigger2" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="generation" />
+		<property name="cronExpression" value="0/10 * * * * ?" />
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="jobDetails">
+			<list>
+				<ref bean="schedulerJob" />
+				<ref bean="generation" />
+			</list>
+		</property>
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger1" />
+				<ref bean="cronTrigger2" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

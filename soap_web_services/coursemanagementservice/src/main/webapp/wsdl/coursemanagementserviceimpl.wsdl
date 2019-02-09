@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CourseManagementServiceImplService" targetNamespace="http://impl.service.coursemanagementsystem.com/" xmlns:ns1="http://service.coursemanagementsystem.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.service.coursemanagementsystem.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:import namespace="http://service.coursemanagementsystem.com/" location="CourseManagementService.wsdl">
+    </wsdl:import>
+  <wsdl:binding name="CourseManagementServiceImplServiceSoapBinding" type="ns1:CourseManagementService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addOrUpdateCourse">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addOrUpdateCourse">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addOrUpdateCourseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="studentLogin">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="studentLogin">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="studentLoginResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CourseManagementException">
+        <soap:fault name="CourseManagementException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="registerStudent">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="registerStudent">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="registerStudentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="InvalidInputFault">
+        <soap:fault name="InvalidInputFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="generateIdCard">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="generateIdCard">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="generateIdCardResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CourseManagementException">
+        <soap:fault name="CourseManagementException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="courseApproval">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="courseApproval">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="courseApprovalResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestCourse">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="requestCourse">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="requestCourseResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="NoCourseFault">
+        <soap:fault name="NoCourseFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CourseManagementServiceImplService">
+    <wsdl:port name="CourseManagementServiceImplPort" binding="tns:CourseManagementServiceImplServiceSoapBinding">
+      <soap:address location="http://localhost:8080/coursemanagementservice/services/CourseManagementServiceImplPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

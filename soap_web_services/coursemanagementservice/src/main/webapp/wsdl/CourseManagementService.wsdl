@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="CourseManagementService" targetNamespace="http://service.coursemanagementsystem.com/" xmlns:ns1="http://service.coursemanagementsystem.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema xmlns:tns="http://service.coursemanagementsystem.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.coursemanagementsystem.com/">
+  <xs:element name="addOrUpdateCourse" type="tns:addOrUpdateCourse"/>
+  <xs:element name="addOrUpdateCourseResponse" type="tns:addOrUpdateCourseResponse"/>
+  <xs:element name="courseApproval" type="tns:courseApproval"/>
+  <xs:element name="courseApprovalResponse" type="tns:courseApprovalResponse"/>
+  <xs:element name="generateIdCard" type="tns:generateIdCard"/>
+  <xs:element name="generateIdCardResponse" type="tns:generateIdCardResponse"/>
+  <xs:element name="registerStudent" type="tns:registerStudent"/>
+  <xs:element name="registerStudentResponse" type="tns:registerStudentResponse"/>
+  <xs:element name="requestCourse" type="tns:requestCourse"/>
+  <xs:element name="requestCourseResponse" type="tns:requestCourseResponse"/>
+  <xs:element name="studentLogin" type="tns:studentLogin"/>
+  <xs:element name="studentLoginResponse" type="tns:studentLoginResponse"/>
+  <xs:complexType name="addOrUpdateCourse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:courses"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="courses">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="action" type="xs:string"/>
+      <xs:element name="cost" type="xs:double"/>
+      <xs:element minOccurs="0" name="id" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="addOrUpdateCourseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:courseResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="courseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="studentLogin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:loginRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="studentId" type="xs:string"/>
+      <xs:element minOccurs="0" name="username" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="studentLoginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:loginResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="loginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="loginStatus" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registerStudent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:registrationRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrationRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateOfBirth" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="password" type="xs:string"/>
+      <xs:element minOccurs="0" name="phoneNo" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registerStudentResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:registrationResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="registrationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dateOfReg" type="tns:date"/>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="date">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="generateIdCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="generateIdCardResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:idCardResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="idCardResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="batchNo" type="xs:string"/>
+      <xs:element minOccurs="0" name="batchTime" type="xs:string"/>
+      <xs:element minOccurs="0" name="courseName" type="xs:string"/>
+      <xs:element minOccurs="0" name="studentName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="courseApproval">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="studentId" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="courseApprovalResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:courseResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestCourse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:courseRequest"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="courseRequest">
+    <xs:sequence>
+      <xs:element name="amount" type="xs:double"/>
+      <xs:element name="batchNum" type="xs:int"/>
+      <xs:element minOccurs="0" name="courseName" type="xs:string"/>
+      <xs:element minOccurs="0" name="email" type="xs:string"/>
+      <xs:element minOccurs="0" name="firstName" type="xs:string"/>
+      <xs:element minOccurs="0" name="lastName" type="xs:string"/>
+      <xs:element minOccurs="0" name="status" type="xs:string"/>
+      <xs:element minOccurs="0" name="studentId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="requestCourseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:courseResponse"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CourseManagementException" type="tns:CourseManagementException"/>
+  <xs:complexType name="CourseManagementException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InvalidInputFault" type="tns:InvalidInputFault"/>
+  <xs:complexType name="InvalidInputFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NoCourseFault" type="tns:NoCourseFault"/>
+  <xs:complexType name="NoCourseFault">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="registerStudent">
+    <wsdl:part name="parameters" element="ns1:registerStudent">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="studentLogin">
+    <wsdl:part name="parameters" element="ns1:studentLogin">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateIdCard">
+    <wsdl:part name="parameters" element="ns1:generateIdCard">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="NoCourseFault">
+    <wsdl:part name="NoCourseFault" element="ns1:NoCourseFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="requestCourseResponse">
+    <wsdl:part name="parameters" element="ns1:requestCourseResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="registerStudentResponse">
+    <wsdl:part name="parameters" element="ns1:registerStudentResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CourseManagementException">
+    <wsdl:part name="CourseManagementException" element="ns1:CourseManagementException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateIdCardResponse">
+    <wsdl:part name="parameters" element="ns1:generateIdCardResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="courseApproval">
+    <wsdl:part name="parameters" element="ns1:courseApproval">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="courseApprovalResponse">
+    <wsdl:part name="parameters" element="ns1:courseApprovalResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="studentLoginResponse">
+    <wsdl:part name="parameters" element="ns1:studentLoginResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InvalidInputFault">
+    <wsdl:part name="InvalidInputFault" element="ns1:InvalidInputFault">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addOrUpdateCourseResponse">
+    <wsdl:part name="parameters" element="ns1:addOrUpdateCourseResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addOrUpdateCourse">
+    <wsdl:part name="parameters" element="ns1:addOrUpdateCourse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="requestCourse">
+    <wsdl:part name="parameters" element="ns1:requestCourse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CourseManagementService">
+    <wsdl:operation name="addOrUpdateCourse">
+      <wsdl:input name="addOrUpdateCourse" message="ns1:addOrUpdateCourse">
+    </wsdl:input>
+      <wsdl:output name="addOrUpdateCourseResponse" message="ns1:addOrUpdateCourseResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="studentLogin">
+      <wsdl:input name="studentLogin" message="ns1:studentLogin">
+    </wsdl:input>
+      <wsdl:output name="studentLoginResponse" message="ns1:studentLoginResponse">
+    </wsdl:output>
+      <wsdl:fault name="CourseManagementException" message="ns1:CourseManagementException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="registerStudent">
+      <wsdl:input name="registerStudent" message="ns1:registerStudent">
+    </wsdl:input>
+      <wsdl:output name="registerStudentResponse" message="ns1:registerStudentResponse">
+    </wsdl:output>
+      <wsdl:fault name="InvalidInputFault" message="ns1:InvalidInputFault">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="generateIdCard">
+      <wsdl:input name="generateIdCard" message="ns1:generateIdCard">
+    </wsdl:input>
+      <wsdl:output name="generateIdCardResponse" message="ns1:generateIdCardResponse">
+    </wsdl:output>
+      <wsdl:fault name="CourseManagementException" message="ns1:CourseManagementException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="courseApproval">
+      <wsdl:input name="courseApproval" message="ns1:courseApproval">
+    </wsdl:input>
+      <wsdl:output name="courseApprovalResponse" message="ns1:courseApprovalResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="requestCourse">
+      <wsdl:input name="requestCourse" message="ns1:requestCourse">
+    </wsdl:input>
+      <wsdl:output name="requestCourseResponse" message="ns1:requestCourseResponse">
+    </wsdl:output>
+      <wsdl:fault name="NoCourseFault" message="ns1:NoCourseFault">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
