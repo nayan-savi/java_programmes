@@ -1,0 +1,40 @@
+<xs:schema xmlns:tns="http://service.leavemanagementsystem.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://service.leavemanagementsystem.com/" version="1.0">
+
+  <xs:element name="generateStudentId" type="tns:generateStudentId"/>
+
+  <xs:element name="generateStudentIdResponse" type="tns:generateStudentIdResponse"/>
+
+  <xs:element name="getName" type="tns:getName"/>
+
+  <xs:element name="getNameResponse" type="tns:getNameResponse"/>
+
+  <xs:complexType name="generateStudentId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+      <xs:element minOccurs="0" name="arg1" type="tns:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="date">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="generateStudentIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

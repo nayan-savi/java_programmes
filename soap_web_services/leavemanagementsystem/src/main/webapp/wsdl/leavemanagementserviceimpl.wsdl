@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="LeaveManagementServiceImplService" targetNamespace="http://impl.service.leavemanagementsystem.com/" xmlns:ns1="http://service.leavemanagementsystem.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://impl.service.leavemanagementsystem.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:import namespace="http://service.leavemanagementsystem.com/" location="LeaveManagementService.wsdl">
+    </wsdl:import>
+  <wsdl:binding name="LeaveManagementServiceImplServiceSoapBinding" type="ns1:LeaveManagementService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="generateStudentId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="generateStudentId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="generateStudentIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getName">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getName">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getNameResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LeaveManagementServiceImplService">
+    <wsdl:port name="LeaveManagementServiceImplPort" binding="tns:LeaveManagementServiceImplServiceSoapBinding">
+      <soap:address location="http://localhost:8080/leavemanagementsystem/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

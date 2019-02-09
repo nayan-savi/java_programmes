@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="LeaveManagementService" targetNamespace="http://service.leavemanagementsystem.com/" xmlns:ns1="http://service.leavemanagementsystem.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://service.leavemanagementsystem.com/" schemaLocation="leavemanagementserviceimpl_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getNameResponse">
+    <wsdl:part name="parameters" element="ns1:getNameResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getName">
+    <wsdl:part name="parameters" element="ns1:getName">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateStudentIdResponse">
+    <wsdl:part name="parameters" element="ns1:generateStudentIdResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="generateStudentId">
+    <wsdl:part name="parameters" element="ns1:generateStudentId">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="LeaveManagementService">
+    <wsdl:operation name="generateStudentId">
+      <wsdl:input name="generateStudentId" message="ns1:generateStudentId">
+    </wsdl:input>
+      <wsdl:output name="generateStudentIdResponse" message="ns1:generateStudentIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getName">
+      <wsdl:input name="getName" message="ns1:getName">
+    </wsdl:input>
+      <wsdl:output name="getNameResponse" message="ns1:getNameResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
