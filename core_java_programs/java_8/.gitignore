@@ -24,3 +24,5 @@ target
 /dist/
 /nbdist/
 /.nb-gradle/
+/.idea/workspace.xml
+/.idea
